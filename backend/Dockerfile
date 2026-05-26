@@ -42,5 +42,5 @@ ENV PORT=3000
 # Expose port
 EXPOSE 3000
 
-# Start server
-CMD ["node", "server.js"]
+# Start server - run db push first to ensure SQLite/Postgres schema is created
+CMD ["sh", "-c", "npx prisma db push && node server.js"]
