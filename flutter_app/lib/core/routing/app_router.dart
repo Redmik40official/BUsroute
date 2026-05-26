@@ -56,11 +56,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       final isAuthenticated = authState.valueOrNull?.isAuthenticated ?? false;
       final userRole = authState.valueOrNull?.role;
       final isGoingToAuth = state.matchedLocation == AppRoutes.login ||
-          state.matchedLocation == AppRoutes.register ||
-          state.matchedLocation == AppRoutes.splash;
+          state.matchedLocation == AppRoutes.register;
 
       // Still loading auth state — stay on splash
       if (authState.isLoading) return AppRoutes.splash;
+
+      // If we finished loading and we are STILL on splash, we MUST redirect
+      if (state.matchedLocation == AppRoutes.splash) {
+        if (isAuthenticated) {
+          return userRole == 'driver' ? AppRoutes.driverHome : AppRoutes.studentRoutes;
+        } else {
+          return AppRoutes.login;
+        }
+      }
 
       // Not authenticated and not going to an auth screen → redirect to login
       if (!isAuthenticated && !isGoingToAuth) {

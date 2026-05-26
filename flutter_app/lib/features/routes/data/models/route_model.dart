@@ -53,7 +53,7 @@ class RouteStopModel {
       name: json['name'] as String,
       lat: (json['lat'] as num).toDouble(),
       lng: (json['lng'] as num).toDouble(),
-      order: json['order'] as int,
+      order: (json['stopOrder'] ?? json['order'] ?? 0) as int,
     );
   }
 }

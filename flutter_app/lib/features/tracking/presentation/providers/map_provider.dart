@@ -48,16 +48,21 @@ class MapNotifier extends StateNotifier<BusMapState> {
 
   MapNotifier(this._socketService) : super(BusMapState()) {
     _initSocketListeners();
+    _socketService.connect();
   }
 
   void _initSocketListeners() {
     _locationSub = _socketService.onBusLocation.listen((data) {
-      final busId = data['busId'] as String?;
-      final lat = data['lat'] as double?;
-      final lng = data['lng'] as double?;
-      
-      if (busId != null && lat != null && lng != null) {
-        _updateBusMarker(busId, LatLng(lat, lng));
+      try {
+        final busId = data['busId']?.toString();
+        final lat = (data['lat'] as num?)?.toDouble();
+        final lng = (data['lng'] as num?)?.toDouble();
+        
+        if (busId != null && lat != null && lng != null) {
+          _updateBusMarker(busId, LatLng(lat, lng));
+        }
+      } catch (e) {
+        _log.e('[MapProvider] Error parsing socket location data: $e');
       }
     });
   }

@@ -395,7 +395,10 @@ class _DevQuickAccess extends ConsumerWidget {
             children: [
               Expanded(
                 child: OutlinedButton.icon(
-                  onPressed: () => context.go(AppRoutes.studentRoutes),
+                  onPressed: () {
+                    // Mock student login
+                    ref.read(authStateProvider.notifier).mockLogin('student');
+                  },
                   icon: const Icon(Icons.school_outlined, size: 16),
                   label: const Text('Student'),
                   style: OutlinedButton.styleFrom(
@@ -407,7 +410,10 @@ class _DevQuickAccess extends ConsumerWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: OutlinedButton.icon(
-                  onPressed: () => context.go(AppRoutes.driverHome),
+                  onPressed: () {
+                    // Mock driver login
+                    ref.read(authStateProvider.notifier).mockLogin('driver');
+                  },
                   icon: const Icon(Icons.local_shipping_outlined, size: 16),
                   label: const Text('Driver'),
                   style: OutlinedButton.styleFrom(

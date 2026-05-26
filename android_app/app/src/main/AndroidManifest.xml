@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".CaptainLoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AURCMRoute">
             <intent-filter>
@@ -24,9 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RouteListActivity" />
         <activity android:name=".LiveMapActivity" />
-        <activity android:name=".CaptainLoginActivity" />
         <activity android:name=".ActiveTripActivity" />
 
         <meta-data

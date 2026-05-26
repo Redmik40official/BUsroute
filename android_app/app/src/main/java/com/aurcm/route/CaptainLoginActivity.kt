@@ -67,27 +67,48 @@ class CaptainLoginActivity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
         btnStart.isEnabled = false
 
-        ws = WebSocketManager { response ->
-            runOnUiThread {
-                if (response.type == "error") {
-                    showError(response.message ?: "Authentication failed")
-                    ws?.disconnect()
-                } else if (response.type == "captain:ack") {
-                    ws?.disconnect()
-                    // Success! Move to active trip screen
-                    val intent = Intent(this, ActiveTripActivity::class.java)
-                    intent.putExtra("busId", busId)
-                    intent.putExtra("pin", pin)
-                    startActivity(intent)
-                    finish()
+        CoroutineScope(Dispatchers.Main).launch {
+            val response = ApiClient.busLogin(busId, pin)
+            if (response == null) {
+                showError("Invalid Bus ID or PIN, or Network Error")
+                return@launch
+            }
+
+            // We have a token! Connect WebSocket
+            ws = WebSocketManager { wsResponse ->
+                runOnUiThread {
+                    if (wsResponse.type == "error") {
+                        showError(wsResponse.message ?: "Authentication failed")
+                        ws?.disconnect()
+                    } else if (wsResponse.type == "captain:ack") {
+                        ws?.disconnect()
+                        // Success! Move to active trip screen
+                        val intent = Intent(this@CaptainLoginActivity, ActiveTripActivity::class.java)
+                        intent.putExtra("busId", busId)
+                        intent.putExtra("pin", pin)
+                        intent.putExtra("token", response.accessToken)
+                        startActivity(intent)
+                        finish()
+                    }
                 }
             }
+            ws?.connect(response.accessToken)
+            
+            // Wait briefly for connection before emitting trip:start
+            window.decorView.postDelayed({
+                // The old system didn't know routeId here, but the backend requires it.
+                // We'll pass busId as routeId for now, or the backend will ignore it.
+                // Actually, let's fetch route details to get the routeId!
+                CoroutineScope(Dispatchers.IO).launch {
+                    val routes = ApiClient.getRoutes()
+                    val myRoute = routes.find { it.busId == busId }
+                    val routeId = myRoute?.id ?: busId
+                    withContext(Dispatchers.Main) {
+                        ws?.startCaptain(busId, pin, routeId)
+                    }
+                }
+            }, 1000)
         }
-        ws?.connect()
-        // wait briefly for connection before sending auth
-        window.decorView.postDelayed({
-            ws?.startCaptain(busId, pin, "")
-        }, 1000)
     }
 
     override fun onDestroy() {

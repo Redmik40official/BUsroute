@@ -34,13 +34,26 @@ function initSocket(httpServer) {
     console.log(`[Socket] Client connected: ${socket.id} (User: ${socket.user?.email || 'Anonymous'})`);
 
     // ── Student: Subscribe to a Route Room ──────────────────────────────────
-    socket.on("student:subscribe", ({ routeId }) => {
+    socket.on("student:subscribe", async ({ routeId }) => {
       const roomName = `route:${routeId}`;
       socket.join(roomName);
       console.log(`[Socket] Client ${socket.id} joined room: ${roomName}`);
       
-      // Optionally, we could fetch the latest known location of the bus for this route from Redis/DB
-      // and immediately emit a "bus:snapshot" to this single socket.
+      // Fetch latest known location and emit immediately
+      const activeBusesMap = await trackingService.getAllActiveBuses();
+      for (const [busId, busData] of activeBusesMap) {
+        if (busData.routeId === routeId) {
+          socket.emit("bus:location", {
+            busId: busData.busId,
+            lat: busData.lat,
+            lng: busData.lng,
+            speed: busData.speed,
+            heading: busData.heading,
+            timestamp: busData.timestamp
+          });
+          break;
+        }
+      }
     });
 
     socket.on("student:unsubscribe", ({ routeId }) => {

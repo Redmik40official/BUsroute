@@ -8,6 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.MediaType.Companion.toMediaType
+import org.json.JSONObject
 
 object ApiClient {
     // Using localtunnel to expose the local server to the public internet for long-distance testing over 4G/5G
@@ -34,6 +37,31 @@ object ApiClient {
         } catch (e: Exception) {
             Log.e("ApiClient", "Error fetching routes", e)
             emptyList()
+        }
+    }
+
+    suspend fun busLogin(busId: String, pin: String): com.aurcm.route.data.models.AuthResponse? = withContext(Dispatchers.IO) {
+        try {
+            val json = JSONObject().apply {
+                put("busId", busId)
+                put("pin", pin)
+            }
+            
+            val request = Request.Builder()
+                .url("$BASE_URL/api/auth/bus-login")
+                .header("Bypass-Tunnel-Reminder", "true")
+                .post(json.toString().toRequestBody("application/json".toMediaType()))
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) return@use null
+
+                val bodyStr = response.body?.string() ?: return@use null
+                gson.fromJson(bodyStr, com.aurcm.route.data.models.AuthResponse::class.java)
+            }
+        } catch (e: Exception) {
+            Log.e("ApiClient", "Error logging in", e)
+            null
         }
     }
 

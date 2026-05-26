@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:2:1-35:12
 MERGED from [androidx.databinding:viewbinding:9.0.1] C:\Users\nisha\.gradle\caches\9.1.0\transforms\52ec732acf652c324ccac865bd9b3439\workspace\transformed\viewbinding-9.0.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\nisha\.gradle\caches\9.1.0\transforms\e527843acd00138dc899ff49093b19d7\workspace\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\nisha\.gradle\caches\9.1.0\transforms\cb39c9906747ff759962dbc11118c076\workspace\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -82,8 +82,8 @@ ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:9:5-35:19
-INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:9:5-35:19
+ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:9:5-33:19
+INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:9:5-33:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\nisha\.gradle\caches\9.1.0\transforms\e527843acd00138dc899ff49093b19d7\workspace\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\nisha\.gradle\caches\9.1.0\transforms\e527843acd00138dc899ff49093b19d7\workspace\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\nisha\.gradle\caches\9.1.0\transforms\cb39c9906747ff759962dbc11118c076\workspace\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -126,14 +126,14 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\nisha\.gradle\cach
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:14:9-48
 	android:usesCleartextTraffic
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:15:9-44
-activity#com.aurcm.route.MainActivity
+activity#com.aurcm.route.CaptainLoginActivity
 ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:17:9-25:20
 	android:exported
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:19:13-36
 	android:theme
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:20:13-52
 	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:18:13-41
+		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:18:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
@@ -144,28 +144,20 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
 		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:23:27-74
-activity#com.aurcm.route.RouteListActivity
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:27:9-55
-	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:27:19-52
 activity#com.aurcm.route.LiveMapActivity
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:28:9-53
+ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:27:9-53
 	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:28:19-50
-activity#com.aurcm.route.CaptainLoginActivity
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:29:9-58
-	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:29:19-55
+		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:27:19-50
 activity#com.aurcm.route.ActiveTripActivity
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:30:9-56
+ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:28:9-56
 	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:30:19-53
+		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:28:19-53
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:32:9-34:71
+ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:30:9-32:71
 	android:value
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:34:13-68
+		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:32:13-68
 	android:name
-		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:33:13-58
+		ADDED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml:31:13-58
 uses-sdk
 INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\nisha\Desktop\AURCM route\android_app\app\src\main\AndroidManifest.xml

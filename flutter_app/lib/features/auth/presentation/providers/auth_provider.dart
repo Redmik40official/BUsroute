@@ -160,6 +160,18 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
     state = const AsyncData(AuthState());
   }
 
+  /// Dev bypass: mock login without API call
+  void mockLogin(String role) {
+    state = AsyncData(AuthState(
+      isAuthenticated: true,
+      userId: 'dev-user-123',
+      name: 'Developer',
+      email: 'dev@example.com',
+      role: role,
+      accessToken: 'mock-token',
+    ));
+  }
+
   // ── Private helpers ───────────────────────────────────────────────────────
   Future<void> _persistAndSetState(Map<String, dynamic> data) async {
     final storage = ref.read(secureStorageProvider);
@@ -167,9 +179,15 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
     final refreshToken = data['refreshToken'] as String;
     final user = data['user'] as Map<String, dynamic>;
 
-    await storage.setAccessToken(accessToken);
-    await storage.setRefreshToken(refreshToken);
-    await storage.setUserData(jsonEncode(user));
+    try {
+      await storage.setAccessToken(accessToken);
+      await storage.setRefreshToken(refreshToken);
+      await storage.setUserData(jsonEncode(user));
+    } catch (_) {
+      // If secure storage crashes (e.g. Android Keystore invalidation bug),
+      // we gracefully ignore it so the user can still log in for this session.
+      await storage.clearAll();
+    }
 
     state = AsyncData(
       AuthState.fromJson({...user, 'accessToken': accessToken}),

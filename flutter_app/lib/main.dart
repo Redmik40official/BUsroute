@@ -28,8 +28,8 @@ import 'shared/theme/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Use bundled fonts — prevents runtime network fetch flicker
-  GoogleFonts.config.allowRuntimeFetching = false;
+  // Allow runtime fetching of fonts since we removed local assets
+  GoogleFonts.config.allowRuntimeFetching = true;
 
   // Load environment variables
   await dotenv.load(fileName: ".env");

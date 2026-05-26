@@ -50,10 +50,12 @@ class ActiveTripActivity : AppCompatActivity() {
             stopBroadcast()
         }
 
+        val token = intent.getStringExtra("token") ?: ""
+
         ws = WebSocketManager { } // we don't care about incoming messages here
-        ws.connect()
+        ws.connect(token)
         
-        // Re-authenticate silently on this connection
+        // Let the backend know we are starting the trip on this socket connection
         window.decorView.postDelayed({
             ws.startCaptain(busId, pin, routeId)
         }, 500)

@@ -46,6 +46,11 @@ data class RoutesResponse(
     val routes: List<Route>
 )
 
+data class AuthResponse(
+    val accessToken: String,
+    val refreshToken: String
+)
+
 data class ThingSpeakResponse(
     val created_at: String?,
     val entry_id: Long?,

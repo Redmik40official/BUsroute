@@ -40,7 +40,7 @@
         android:theme="@style/Theme.AURCMRoute"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.aurcm.route.MainActivity"
+            android:name="com.aurcm.route.CaptainLoginActivity"
             android:exported="true"
             android:theme="@style/Theme.AURCMRoute" >
             <intent-filter>
@@ -49,9 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.aurcm.route.RouteListActivity" />
         <activity android:name="com.aurcm.route.LiveMapActivity" />
-        <activity android:name="com.aurcm.route.CaptainLoginActivity" />
         <activity android:name="com.aurcm.route.ActiveTripActivity" />
 
         <meta-data
