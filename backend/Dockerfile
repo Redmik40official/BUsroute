@@ -38,7 +38,7 @@ COPY --from=builder /app/server.js ./
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV DATABASE_URL="file:/app/data/aurcm.db"
+ENV DATABASE_URL="file:///app/data/aurcm.db"
 
 # Expose port
 EXPOSE 3000
