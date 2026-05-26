@@ -55,6 +55,7 @@ const loginRules = [
 // ── Routes ───────────────────────────────────────────────────────────────────
 router.post("/register", registerRules, controller.register);
 router.post("/login",    loginLimiter, loginRules, controller.login);
+router.post("/bus-login", loginLimiter, controller.busLogin);
 router.post("/refresh",  controller.refresh);
 router.post("/logout",   requireAuth, controller.logout);
 router.get("/me",        requireAuth, controller.getMe);

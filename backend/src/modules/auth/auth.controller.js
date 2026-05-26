@@ -49,6 +49,20 @@ async function login(req, res) {
   }
 }
 
+// POST /api/auth/bus-login
+async function busLogin(req, res) {
+  try {
+    const { busId, pin } = req.body;
+    if (!busId || !pin) {
+      return res.status(400).json({ error: "busId and pin required" });
+    }
+    const result = await authService.busLogin({ busId, pin });
+    res.json(result);
+  } catch (err) {
+    handleError(res, err);
+  }
+}
+
 // POST /api/auth/refresh
 async function refresh(req, res) {
   try {
@@ -82,4 +96,4 @@ async function getMe(req, res) {
   }
 }
 
-module.exports = { register, login, refresh, logout, getMe };
+module.exports = { register, login, busLogin, refresh, logout, getMe };

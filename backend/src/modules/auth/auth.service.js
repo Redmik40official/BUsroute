@@ -76,6 +76,62 @@ async function login({ email, password }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Bus/Driver Login
+// ─────────────────────────────────────────────────────────────────────────────
+async function busLogin({ busId, pin }) {
+  // Find the route associated with this busId and check the PIN
+  const route = await db.getRouteByBusId(busId);
+  
+  if (!route) {
+    throw Object.assign(new Error("Invalid bus ID or PIN"), { statusCode: 401 });
+  }
+
+  // Assuming plaintext PIN for simplicity in this prototype. 
+  // If it was hashed, use bcrypt.compare
+  if (route.pin !== pin) {
+    throw Object.assign(new Error("Invalid bus ID or PIN"), { statusCode: 401 });
+  }
+
+  // Generate a mock driver user profile for the JWT
+  const user = {
+    id: `driver-${busId}`,
+    name: `Driver for ${busId}`,
+    email: `${busId}@aurcm.edu`,
+    role: "driver"
+  };
+
+  const accessToken  = signAccessToken(user);
+  
+  // We don't issue a refresh token for bus/pin login to keep it simple, 
+  // or we can just issue an access token with a longer life, or issue a refresh token.
+  // We'll issue a refresh token so the app logic remains identical.
+  const refreshToken = signRefreshToken(user);
+  
+  // Create a placeholder user in DB if necessary to store refresh token?
+  // Because refresh tokens have a foreign key to User.
+  // Wait, if the user doesn't exist in the Users table, saving a refresh token will crash SQLite!
+  // Let's create a user row for the bus if it doesn't exist.
+  let userRow = await db.getUserByEmail(user.email);
+  if (!userRow) {
+    const passwordHash = await bcrypt.hash(pin, 10);
+    await db.createUser({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      passwordHash: passwordHash,
+      role: "driver"
+    });
+    userRow = await db.getUserByEmail(user.email);
+  }
+
+  // Rotate refresh token
+  await db.deleteRefreshTokenByUserId(userRow.id);
+  await db.saveRefreshToken(userRow.id, refreshToken);
+
+  return { user, accessToken, refreshToken };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Refresh Access Token
 // ─────────────────────────────────────────────────────────────────────────────
 async function refresh({ refreshToken }) {
@@ -122,4 +178,4 @@ async function getMe(userId) {
   };
 }
 
-module.exports = { register, login, refresh, logout, getMe };
+module.exports = { register, login, busLogin, refresh, logout, getMe };
