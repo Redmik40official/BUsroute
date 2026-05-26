@@ -111,9 +111,21 @@ process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 //  Start listening (after DB init)
 // ---------------------------------------------------------------------------
 async function startServer() {
-  redis.initRedis(); // Initializes connection or fallback
-  await db.initDB();
+  console.log("[BOOT] Starting server initialization...");
+  
+  try {
+    console.log("[BOOT] Initializing Redis...");
+    redis.initRedis(); // Initializes connection or fallback
+    
+    console.log("[BOOT] Initializing Database...");
+    await db.initDB();
+    console.log("[BOOT] Database initialized successfully.");
+  } catch (err) {
+    console.error("[BOOT] FATAL ERROR DURING INIT:", err);
+    process.exit(1);
+  }
 
+  console.log(`[BOOT] Attempting to listen on ${HOST}:${PORT}...`);
   server.listen(PORT, HOST, async () => {
     const routes = await db.getAllRoutes();
     console.log("═══════════════════════════════════════════════════════════");

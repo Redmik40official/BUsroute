@@ -39,6 +39,9 @@ COPY --from=builder /app/src ./src
 COPY --from=builder /app/data ./data
 COPY --from=builder /app/server.js ./
 
+# Fix SQLite permissions for Render's non-root user
+RUN chmod -R 777 /app/data
+
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
