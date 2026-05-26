@@ -38,9 +38,10 @@ COPY --from=builder /app/server.js ./
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV DATABASE_URL="file:../data/aurcm.db"
 
 # Expose port
 EXPOSE 3000
 
 # Start server - run db push first to ensure SQLite/Postgres schema is created
-CMD ["sh", "-c", "npx prisma db push && node server.js"]
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && node server.js"]
