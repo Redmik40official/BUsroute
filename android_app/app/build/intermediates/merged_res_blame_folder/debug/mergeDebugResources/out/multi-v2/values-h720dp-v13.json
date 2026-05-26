@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.aurcm.route.app-mergeDebugResources-33:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\nisha\\.gradle\\caches\\9.1.0\\transforms\\12d42261a4b8f18d7b6dfae489141d31\\workspace\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

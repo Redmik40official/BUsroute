@@ -1,0 +1,35 @@
+{
+  "name": "aurcm-route-backend",
+  "version": "1.0.0",
+  "description": "Real-time WebSocket backend for AURCM Route — College Bus Tracking App for Anna University Regional Campus Madurai",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.5.2",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.2.0",
+    "ioredis": "^5.10.1",
+    "jsonwebtoken": "^9.0.3",
+    "socket.io": "^4.8.3",
+    "sqlite3": "^6.0.1",
+    "uuid": "^14.0.0",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "AURCM Route Team",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

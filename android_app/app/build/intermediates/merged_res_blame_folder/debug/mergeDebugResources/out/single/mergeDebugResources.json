@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_rounded_surface.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_rounded_surface.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_rounded_accent.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_rounded_accent.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_activity_main.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_activity_live_map.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_live_map.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_activity_captain_login.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_captain_login.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_activity_active_trip.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_active_trip.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_activity_route_list.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_route_list.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_button_error.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_button_error.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_button_accent.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_button_accent.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_floating_button.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_floating_button.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_circle_gradient.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_circle_gradient.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_speed_chip.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_speed_chip.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_error_banner.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_error_banner.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_input.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_input.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_search.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_search.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_bottom_sheet.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_bottom_sheet.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_route_card.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_route_card.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_circle_accent.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_circle_accent.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_rounded_primary.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_rounded_primary.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/layout_item_route.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/layout/item_route.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_drag_handle.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_drag_handle.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-debug-35:/drawable_bg_live_chip.xml.flat",
+        "source": "com.aurcm.route.app-main-37:/drawable/bg_live_chip.xml"
+    }
+]

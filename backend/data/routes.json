@@ -1,0 +1,175 @@
+{
+  "routes": [
+    {
+      "id": "route-1",
+      "name": "AURCM Campus ↔ Periyar Bus Stand",
+      "shortName": "Periyar",
+      "description": "Via Mattuthavani, connects campus to Periyar (New) Bus Stand",
+      "busId": "bus1",
+      "pin": "1000",
+      "color": "#E53935",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai Junction",       "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Mattuthavani Bus Stand",   "lat": 9.8960, "lng": 78.1010, "order": 3 },
+        { "name": "Alanganallur Road Jn",     "lat": 9.9050, "lng": 78.1060, "order": 4 },
+        { "name": "Bypass Road Junction",     "lat": 9.9150, "lng": 78.1100, "order": 5 },
+        { "name": "Mattuthavani Flyover",     "lat": 9.9220, "lng": 78.1150, "order": 6 },
+        { "name": "Periyar Bus Stand",        "lat": 9.9270, "lng": 78.1190, "order": 7 }
+      ]
+    },
+    {
+      "id": "route-2",
+      "name": "AURCM Campus ↔ Arapalayam",
+      "shortName": "Arapalayam",
+      "description": "Via Sholavandan Road, connects campus to Arapalayam Bus Stand",
+      "busId": "BUS-02",
+      "pin": "1002",
+      "color": "#1E88E5",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Vilangudi",               "lat": 9.8930, "lng": 78.0870, "order": 3 },
+        { "name": "Surveyor Colony",          "lat": 9.9010, "lng": 78.0830, "order": 4 },
+        { "name": "Jaihindpuram",            "lat": 9.9100, "lng": 78.0800, "order": 5 },
+        { "name": "Arapalayam Bus Stand",    "lat": 9.9190, "lng": 78.0770, "order": 6 }
+      ]
+    },
+    {
+      "id": "route-3",
+      "name": "AURCM Campus ↔ Thirunagar",
+      "shortName": "Thirunagar",
+      "description": "Via Bypass Road, connects campus to Thirunagar",
+      "busId": "BUS-03",
+      "pin": "1003",
+      "color": "#43A047",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai Junction",       "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Bypass Road",              "lat": 9.8950, "lng": 78.0980, "order": 3 },
+        { "name": "SS Colony",                "lat": 9.9030, "lng": 78.0930, "order": 4 },
+        { "name": "Thirunagar 4th Stop",      "lat": 9.9110, "lng": 78.0880, "order": 5 },
+        { "name": "Thirunagar Main",          "lat": 9.9180, "lng": 78.0840, "order": 6 }
+      ]
+    },
+    {
+      "id": "route-4",
+      "name": "AURCM Campus ↔ Anna Nagar",
+      "shortName": "Anna Nagar",
+      "description": "Via Kalavasal, connects campus to Anna Nagar",
+      "busId": "BUS-04",
+      "pin": "1004",
+      "color": "#FB8C00",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Mattuthavani",            "lat": 9.8960, "lng": 78.1010, "order": 3 },
+        { "name": "Kalavasal",               "lat": 9.9100, "lng": 78.1080, "order": 4 },
+        { "name": "Teppakulam",              "lat": 9.9200, "lng": 78.1140, "order": 5 },
+        { "name": "Meenakshi Temple Area",   "lat": 9.9210, "lng": 78.1195, "order": 6 },
+        { "name": "Anna Nagar",              "lat": 9.9260, "lng": 78.1250, "order": 7 }
+      ]
+    },
+    {
+      "id": "route-5",
+      "name": "AURCM Campus ↔ KK Nagar",
+      "shortName": "KK Nagar",
+      "description": "Via Bypass and Anna Bus Stand, connects campus to KK Nagar",
+      "busId": "BUS-05",
+      "pin": "1005",
+      "color": "#8E24AA",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Palanganatham",           "lat": 9.8950, "lng": 78.0960, "order": 3 },
+        { "name": "Anna Bus Stand",          "lat": 9.9050, "lng": 78.1000, "order": 4 },
+        { "name": "Arasaradi",               "lat": 9.9130, "lng": 78.0960, "order": 5 },
+        { "name": "KK Nagar 1st Stop",       "lat": 9.9200, "lng": 78.0910, "order": 6 },
+        { "name": "KK Nagar Main Road",      "lat": 9.9280, "lng": 78.0870, "order": 7 },
+        { "name": "KK Nagar Bus Terminus",   "lat": 9.9340, "lng": 78.0830, "order": 8 }
+      ]
+    },
+    {
+      "id": "route-6",
+      "name": "AURCM Campus ↔ Tallakulam",
+      "shortName": "Tallakulam",
+      "description": "Via Sholavandan Road, connects campus to Tallakulam",
+      "busId": "BUS-06",
+      "pin": "1006",
+      "color": "#00897B",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Vilangudi Circle",        "lat": 9.8930, "lng": 78.0870, "order": 3 },
+        { "name": "Goripalayam",             "lat": 9.9050, "lng": 78.0970, "order": 4 },
+        { "name": "Tallakulam",              "lat": 9.9150, "lng": 78.1030, "order": 5 }
+      ]
+    },
+    {
+      "id": "route-7",
+      "name": "AURCM Campus ↔ Teppakulam",
+      "shortName": "Teppakulam",
+      "description": "Via Mattuthavani, connects campus to Teppakulam (Temple City area)",
+      "busId": "BUS-07",
+      "pin": "1007",
+      "color": "#F4511E",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai Junction",       "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Mattuthavani",            "lat": 9.8960, "lng": 78.1010, "order": 3 },
+        { "name": "Kalavasal",               "lat": 9.9100, "lng": 78.1080, "order": 4 },
+        { "name": "Yanaikkal",               "lat": 9.9160, "lng": 78.1120, "order": 5 },
+        { "name": "Teppakulam",              "lat": 9.9210, "lng": 78.1170, "order": 6 }
+      ]
+    },
+    {
+      "id": "route-8",
+      "name": "AURCM Campus ↔ Palanganatham",
+      "shortName": "Palanganatham",
+      "description": "Short route connecting campus to Palanganatham junction",
+      "busId": "BUS-08",
+      "pin": "1008",
+      "color": "#3949AB",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Nagaram Colony",           "lat": 9.8910, "lng": 78.0950, "order": 3 },
+        { "name": "Madurai Kamaraj Univ Rd",  "lat": 9.8970, "lng": 78.0975, "order": 4 },
+        { "name": "Palanganatham Junction",  "lat": 9.9020, "lng": 78.1000, "order": 5 }
+      ]
+    },
+    {
+      "id": "route-9",
+      "name": "AURCM Campus ↔ Vilangudi",
+      "shortName": "Vilangudi",
+      "description": "Short route connecting campus to Vilangudi residential area",
+      "busId": "BUS-09",
+      "pin": "1009",
+      "color": "#C0CA33",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Vilangudi Tank Road",     "lat": 9.8900, "lng": 78.0850, "order": 3 },
+        { "name": "Vilangudi Main Road",     "lat": 9.8930, "lng": 78.0810, "order": 4 },
+        { "name": "Vilangudi Terminus",      "lat": 9.8960, "lng": 78.0770, "order": 5 }
+      ]
+    },
+    {
+      "id": "route-10",
+      "name": "AURCM Campus ↔ Simmakkal",
+      "shortName": "Simmakkal",
+      "description": "Via Goripalayam, connects campus to Simmakkal market area",
+      "busId": "BUS-10",
+      "pin": "1010",
+      "color": "#D81B60",
+      "stops": [
+        { "name": "AURCM Campus Gate",       "lat": 9.8760, "lng": 78.0880, "order": 1 },
+        { "name": "Othakadai",               "lat": 9.8850, "lng": 78.0920, "order": 2 },
+        { "name": "Palanganatham",           "lat": 9.8950, "lng": 78.0960, "order": 3 },
+        { "name": "Goripalayam",             "lat": 9.9050, "lng": 78.0970, "order": 4 },
+        { "name": "Tallakulam Junction",     "lat": 9.9130, "lng": 78.1040, "order": 5 },
+        { "name": "Simmakkal",               "lat": 9.9200, "lng": 78.1100, "order": 6 }
+      ]
+    }
+  ]
+}

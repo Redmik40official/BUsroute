@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AURCM Route</string>
+    <string name="role_title">AURCM Route</string>
+    <string name="role_subtitle">Real-time intelligence for your campus commute</string>
+    <string name="student_title">Student Portal</string>
+    <string name="student_subtitle">Live bus tracking &amp; schedules</string>
+    <string name="captain_title">Captain Console</string>
+    <string name="captain_subtitle">Broadcast route telemetry</string>
+    <string name="search_hint">Search for a route or stop…</string>
+    <string name="campus_routes">Campus Routes</string>
+    <string name="captain_auth">Captain Auth</string>
+    <string name="captain_auth_subtitle">Select your assigned route and enter your PIN to start broadcasting.</string>
+    <string name="select_route">Select Route</string>
+    <string name="bus_id">Bus ID</string>
+    <string name="security_pin">Security PIN</string>
+    <string name="start_broadcast">Initiate Trip Broadcast</string>
+    <string name="stop_broadcast">End Broadcast</string>
+    <string name="live">LIVE</string>
+    <string name="offline">Offline</string>
+    <string name="footer">Anna University Regional Campus Madurai</string>
+</resources>

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/activity_live_map.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_live_map.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/activity_route_list.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_route_list.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/activity_captain_login.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_captain_login.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/activity_main.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/activity_active_trip.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/activity_active_trip.xml"
+    },
+    {
+        "merged": "com.aurcm.route.app-mergeDebugResources-34:/layout/item_route.xml",
+        "source": "com.aurcm.route.app-main-37:/layout/item_route.xml"
+    }
+]

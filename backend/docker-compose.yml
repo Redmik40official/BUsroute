@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  aurcm-backend:
+    build: .
+    container_name: aurcm-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - REDIS_URL=redis://aurcm-redis:6379
+      - JWT_SECRET=production_secret_key_change_me
+      # For SQLite in Docker, it will use the internal file.
+      # If using Postgres, uncomment below:
+      # - DATABASE_URL=postgresql://aurcm:password@aurcm-postgres:5432/aurcm?schema=public
+    depends_on:
+      - aurcm-redis
+    volumes:
+      - aurcm-data:/app/data
+
+  aurcm-redis:
+    image: redis:7-alpine
+    container_name: aurcm-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - aurcm-redis-data:/data
+
+  # Optional Postgres Database
+  # aurcm-postgres:
+  #   image: postgres:15-alpine
+  #   container_name: aurcm-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     - POSTGRES_USER=aurcm
+  #     - POSTGRES_PASSWORD=password
+  #     - POSTGRES_DB=aurcm
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - aurcm-pg-data:/var/lib/postgresql/data
+
+volumes:
+  aurcm-data:
+  aurcm-redis-data:
+  # aurcm-pg-data:

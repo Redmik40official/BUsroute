@@ -1,0 +1,95 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         AURCM Route — Android Permissions
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Fine Location: required for GPS lat/lng tracking (drivers) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Coarse Location: fallback, also required by geolocator -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Background Location: required to continue tracking when app is minimized.
+         Android 10+ requires user to explicitly grant this in settings.
+         We request it after the user starts a trip (better UX than on app launch). -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- Internet: HTTP calls + WebSocket connection -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Network State: connectivity_plus — check if online before requests -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Wake Lock: keeps CPU alive during background GPS tracking -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Foreground Service: required for flutter_background_service on Android 9+ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Foreground Service type=location: required on Android 14+ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <!-- Post Notifications: FCM push notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Receive Boot: restart background service on device reboot (future feature) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Request Install Packages: not used but needed by some dependencies -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:label="AURCM Route"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="false"
+        android:usesCleartextTraffic="true">
+
+        <!-- ── Main Activity ─────────────────────────────────────────────── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── Background GPS Tracking Service ───────────────────────────── -->
+        <!-- flutter_background_service runs as a Foreground Service so Android
+             does not kill it when the driver minimizes the app mid-trip. -->
+        <service
+            android:name="id.flutter.flutter_background_service.BackgroundService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+
+        <!-- ── Google Maps API Key ────────────────────────────────────────── -->
+        <!-- Replace YOUR_GOOGLE_MAPS_API_KEY with the key from Google Cloud Console.
+             Restrict the key to Android apps + Maps SDK to prevent abuse. -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${GOOGLE_MAPS_API_KEY}" />
+
+        <!-- ── Firebase / FCM ─────────────────────────────────────────────── -->
+        <!-- google-services.json is placed in android/app/ (Phase 10) -->
+
+        <!-- Flutter embedding v2 -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT" />
+            <data android:mimeType="text/plain" />
+        </intent>
+    </queries>
+</manifest>
