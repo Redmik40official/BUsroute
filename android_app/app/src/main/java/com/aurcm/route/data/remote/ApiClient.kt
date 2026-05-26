@@ -11,8 +11,8 @@ import okhttp3.Request
 
 object ApiClient {
     // Using localtunnel to expose the local server to the public internet for long-distance testing over 4G/5G
-    const val BASE_URL = "https://aurcmcaptain999.loca.lt"
-    const val WS_URL = "wss://aurcmcaptain999.loca.lt/ws"
+    const val BASE_URL = "https://aurcm-backend.onrender.com"
+    const val WS_URL = "wss://aurcm-backend.onrender.com"
 
     private val client = OkHttpClient()
     private val gson = Gson()

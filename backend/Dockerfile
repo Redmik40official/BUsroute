@@ -14,8 +14,12 @@ COPY prisma ./prisma/
 # Using npm install instead of npm ci to prevent lockfile sync issues across OS
 RUN npm install
 
-# Generate Prisma Client (will target linux-musl because of alpine)
+# Generate Prisma Client
 RUN npx prisma generate
+
+# Create SQLite schema in the builder stage
+ENV DATABASE_URL="file:///app/data/aurcm.db"
+RUN mkdir -p /app/data && npx prisma db push --accept-data-loss
 
 # Copy source code
 COPY . .
@@ -43,5 +47,5 @@ ENV DATABASE_URL="file:///app/data/aurcm.db"
 # Expose port
 EXPOSE 3000
 
-# Start server - run db push first to ensure SQLite/Postgres schema is created
-CMD ["sh", "-c", "mkdir -p /app/data && npx prisma db push --accept-data-loss && node server.js"]
+# Start server directly (schema is already baked into the SQLite file)
+CMD ["node", "server.js"]

@@ -1,0 +1,62 @@
+def astar_algo(start_node, stop_node): 
+ open_set = set([start_node]) 
+closed_set = set() 
+g = {} 
+parents = {} 
+g[start_node] = 0
+parents[start_node] = start_node 
+ 
+def heuristic(n): 
+       H_dist = {'S':11.5, 'A': 10.1, 'B': 5.8, 'C': 3.4, 'D': 9.2, 'E': 7.1, 'F': 3.5, 'G': 0} 
+return H_dist[n] 
+ 
+    def get_neighbours(v): 
+        if v in graph_nodes: 
+            return graph_nodes[v] 
+        else: 
+            return None 
+ 
+    while len(open_set) > 0: 
+        n = None 
+        for v in open_set: 
+            if n is None or (g[v] + heuristic(v)) < (g[n] + heuristic(n)): 
+                n = v 
+        if n == stop_node or graph_nodes[n] is None: 
+            pass 
+        else: 
+            for (m, weight) in get_neighbours(n): 
+                if m not in open_set and m not in closed_set: 
+                    open_set.add(m) 
+                    parents[m] = n 
+                    g[m] = g[n] + weight 
+                else: 
+                    if g[m] > g[n] + weight: 
+                        g[m] = g[n] + weight 
+                        parents[m] = n 
+                        if m in closed_set: 
+                            closed_set.remove(m) 
+                            open_set.add(m) 
+        open_set.remove(n) 
+        closed_set.add(n) 
+        if n == stop_node: 
+            path = [] 
+            while parents[n] != n:
+                path.append(n) 
+                n = parents[n] 
+            path.append(start_node) 
+            path.reverse() 
+            print("Path found:", path) 
+            return path 
+    print("Path does not exist!") 
+    return None 
+ 
+graph_nodes = { 
+    'S': [('A',3), ('D', 4)], 
+    'A': [('S', 3), ('B', 2), ('D', 5)], 
+    'B': [('A', 4), ('E', 5), ('C', 4)], 
+    'C': None, 
+    'E': [('D', 2),('B', 5),('F', 4)], 
+    'D': [('S', 4),('A', 5),('E', 4)], 
+    'F': [('E', 4),('G', 3.5)] 
+} 
+astar_algo('A', 'G')
