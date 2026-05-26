@@ -11,7 +11,8 @@ COPY package*.json ./
 COPY prisma ./prisma/
 
 # Install dependencies (including devDependencies for Prisma)
-RUN npm ci
+# Using npm install instead of npm ci to prevent lockfile sync issues across OS
+RUN npm install
 
 # Generate Prisma Client (will target linux-musl because of alpine)
 RUN npx prisma generate
