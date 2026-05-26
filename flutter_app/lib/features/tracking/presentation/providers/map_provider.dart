@@ -48,7 +48,11 @@ class MapNotifier extends StateNotifier<BusMapState> {
 
   MapNotifier(this._socketService) : super(BusMapState()) {
     _initSocketListeners();
-    _socketService.connect();
+  }
+
+  Future<void> init(String routeId) async {
+    await _socketService.connect();
+    subscribeToRoute(routeId);
   }
 
   void _initSocketListeners() {

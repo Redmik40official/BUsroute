@@ -43,7 +43,7 @@ class _LiveMapScreenState extends ConsumerState<LiveMapScreen> {
 
     // Subscribe to socket events for this route
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(mapProvider.notifier).subscribeToRoute(widget.routeId);
+      ref.read(mapProvider.notifier).init(widget.routeId);
     });
 
     _etaTimer = Timer.periodic(const Duration(seconds: 5), (_) => _calculateETA());

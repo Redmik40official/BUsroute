@@ -82,6 +82,7 @@ app.get("/api/health", async (_req, res) => {
     status: "ok",
     uptime: process.uptime(),
     activeBuses: activeBusesMap.size,
+    busesData: Array.from(activeBusesMap.values()),
     timestamp: Date.now(),
   });
 });

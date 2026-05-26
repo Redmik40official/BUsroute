@@ -64,6 +64,11 @@ class SocketService {
 
     _socket!.onConnect((_) {
       _log.i('[Socket] Connected: ${_socket!.id}');
+      if (_pendingRouteSubscription != null) {
+        _socket!.emit('student:subscribe', {'routeId': _pendingRouteSubscription});
+        _log.i('[Socket] Flushed queued subscription to route: $_pendingRouteSubscription');
+        _pendingRouteSubscription = null;
+      }
     });
 
     _socket!.onDisconnect((_) {
@@ -76,24 +81,29 @@ class SocketService {
 
     // ── Listeners ───────────────────────────────────────────────────────────
     _socket!.on('bus:location', (data) {
-      _locationController.add(data as Map<String, dynamic>);
+      if (data != null) {
+        _locationController.add(Map<String, dynamic>.from(data as Map));
+      }
     });
 
     _socket!.on('student:snapshot', (data) {
-      // Data contains an array of buses. We can push them down the same stream.
-      if (data != null && data['buses'] is List) {
+      if (data != null && data is Map && data['buses'] is List) {
         for (final bus in data['buses']) {
-          _locationController.add(bus as Map<String, dynamic>);
+          _locationController.add(Map<String, dynamic>.from(bus as Map));
         }
       }
     });
 
     _socket!.on('trip:started', (data) {
-      _tripStartedController.add(data as Map<String, dynamic>);
+      if (data != null) {
+        _tripStartedController.add(Map<String, dynamic>.from(data as Map));
+      }
     });
 
     _socket!.on('trip:ended', (data) {
-      _tripEndedController.add(data as Map<String, dynamic>);
+      if (data != null) {
+        _tripEndedController.add(Map<String, dynamic>.from(data as Map));
+      }
     });
 
     _socket!.connect();
@@ -109,14 +119,25 @@ class SocketService {
 
   // ── Emit Methods ──────────────────────────────────────────────────────────
 
+  String? _pendingRouteSubscription;
+
   /// Student: Subscribe to a specific route room
   void subscribeToRoute(String routeId) {
-    _socket?.emit('student:subscribe', {'routeId': routeId});
-    _log.i('[Socket] Subscribed to route: $routeId');
+    _pendingRouteSubscription = routeId;
+    if (_socket != null && _socket!.connected) {
+      _socket!.emit('student:subscribe', {'routeId': routeId});
+      _log.i('[Socket] Subscribed to route: $routeId');
+      _pendingRouteSubscription = null;
+    } else {
+      _log.i('[Socket] Queued subscription to route: $routeId');
+    }
   }
 
   /// Student: Unsubscribe from a route room
   void unsubscribeFromRoute(String routeId) {
+    if (_pendingRouteSubscription == routeId) {
+      _pendingRouteSubscription = null;
+    }
     _socket?.emit('student:unsubscribe', {'routeId': routeId});
     _log.i('[Socket] Unsubscribed from route: $routeId');
   }
